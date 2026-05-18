@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Management - RealState.lk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="AgentManagement-Style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <a href="../../Basic UI/Home Page/index.html" class="log">
+            <i class="ri-home-wifi-fill"></i> RealState.lk
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="../../Component 05/Admin Dashbaord/dashboard.html" style="text-decoration:none; color:inherit;">
+                    <div class="menu-title"><i class="ri-dashboard-fill"></i><h4>Dashboard</h4></div>
+                    <p>Overview panel</p>
+                </a>
+            </li>
+            <li>
+                <a href="../../Component 01/Users Admin View/UsersView.html" style="text-decoration:none; color:inherit;">
+                    <div class="menu-title"><i class="ri-group-line"></i><h4>Users</h4></div>
+                    <p>Manage Users</p>
+                </a>
+            </li>
+            <li class="active">
+                <a href="AgentManagement.html" style="text-decoration:none; color:inherit;">
+                    <div class="menu-title"><i class="ri-user-star-line"></i><h4>Agents</h4></div>
+                    <p>Manage Agents</p>
+                </a>
+            </li>
+            <li>
+                <a href="../../Component 05/Admin Management/admin-management.html" style="text-decoration:none; color:inherit;">
+                    <div class="menu-title"><i class="ri-shield-user-line"></i><h4>Admins</h4></div>
+                    <p>Manage Admins</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" style="text-decoration:none; color:inherit;">
+                    <div class="menu-title"><i class="ri-building-2-line"></i><h4>Properties</h4></div>
+                    <p>Manage Properties</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" style="text-decoration:none; color:inherit;">
+                    <div class="menu-title"><i class="ri-question-answer-fill"></i><h4>Reviews</h4></div>
+                    <p>Manage Reviews</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <h1>Agent Management</h1>
+            <div class="topbar-right">
+                <input type="text" class="search" id="searchBox" placeholder="Search agent...">
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="ri-logout-box-r-line"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Service Area</th>
+                        <th>Specialization</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="agentTable"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Edit Agent Details</h3>
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+        </div>
+
+        <!-- Email shown but disabled — cannot be changed -->
+        <div class="modal-field">
+            <label>Email Address</label>
+            <input type="email" id="editEmail" disabled class="modal-input locked-input">
+            <small class="locked-note"><i class="ri-lock-line"></i> Email cannot be changed</small>
+        </div>
+
+        <div class="modal-field">
+            <label>Full Name</label>
+            <input type="text" id="editName" class="modal-input" placeholder="Agent name">
+        </div>
+
+        <div class="modal-field">
+            <label>Mobile Number</label>
+            <input type="text" id="editMobile" class="modal-input" placeholder="Mobile number">
+        </div>
+
+        <div class="modal-field">
+            <label>Service Area</label>
+            <select id="editServiceArea" class="modal-input">
+                <option value="">Select Service Area</option>
+                <option value="Colombo">Colombo</option>
+                <option value="Gampaha">Gampaha</option>
+                <option value="Kandy">Kandy</option>
+                <option value="Galle">Galle</option>
+                <option value="Ratnapura">Ratnapura</option>
+                <option value="Kurunegala">Kurunegala</option>
+                <option value="Matara">Matara</option>
+                <option value="Negombo">Negombo</option>
+                <option value="Jaffna">Jaffna</option>
+                <option value="Anuradhapura">Anuradhapura</option>
+            </select>
+        </div>
+
+        <div class="modal-field">
+            <label>Specialization</label>
+            <select id="editSpecialization" class="modal-input">
+                <option value="">Select Specialization</option>
+                <option value="Residential Sales">Residential Sales</option>
+                <option value="Commercial Sales">Commercial Sales</option>
+                <option value="Land & Development">Land & Development</option>
+                <option value="Luxury Properties">Luxury Properties</option>
+                <option value="Rentals">Rentals</option>
+                <option value="Apartment Sales">Apartment Sales</option>
+            </select>
+        </div>
+
+        <div class="modal-field">
+            <label>New Password</label>
+            <div class="pw-wrapper">
+                <input type="password" id="editPassword" class="modal-input" placeholder="Leave blank to keep current password">
+                <span class="pw-toggle" onclick="togglePw()">
+                    <i class="ri-eye-line" id="pwEye"></i>
+                </span>
+            </div>
+            <small class="locked-note">Leave blank to keep the current password unchanged.</small>
+        </div>
+
+        <!-- Hidden store for email key -->
+        <input type="hidden" id="editEmailKey">
+
+        <div class="modal-actions">
+            <button onclick="saveEdit()" class="btn-save">
+                <i class="ri-save-line"></i> Update Agent
+            </button>
+            <button onclick="closeModal()" class="btn-cancel">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="AgentManagement-Script.js"></script>
+</body>
+</html>
