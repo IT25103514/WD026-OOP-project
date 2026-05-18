@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Profile Settings - RealState.lk</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="AgentLogin-style-2.css"> 
+    <link rel="stylesheet" href="AgentUpdate-style.css">
+</head>
+<body>
+
+    <header class="navbar scrolled">
+        <div class="container nav-container" style="justify-content: space-between; display: flex; align-items: center; max-width: 1100px; margin: 0 auto; padding: 10px 20px;">
+            <a href="../../Basic UI/Home Page/index.html" class="logo" style="font-family: 'Outfit'; font-weight: 700; color: var(--text-primary); font-size: 1.5rem;">
+                <i class="ri-home-wifi-fill" style="color: var(--primary-color);"></i> RealState.lk
+            </a>
+            
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="role-badge" style="font-size: 0.85rem; font-weight: 600; background: var(--card-bg); color: var(--text-primary); padding: 6px 14px; border-radius: 50px;">
+                    <i class="ri-shield-user-line"></i> Agent Workspace
+                </span>
+                <button id="logoutBtn" class="btn-logout" style="background: #E11D48; color: white; border: none; padding: 7px 15px; border-radius: 8px; font-family: 'Outfit'; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s;">
+                    <i class="ri-logout-box-r-line"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-page">
+        <div class="profile-wrapper">
+            
+            <div class="profile-left">
+                <div class="avatar-section">
+                    <div class="avatar-ring">
+                        <img id="avatarPreview" src="" alt="Agent Profile Picture">
+                    </div>
+                    <h3 id="summaryName">Loading...</h3>
+                    <p id="summaryEmail">agent@realstate.lk</p>
+                    <span class="badge-agent">Verified Agent</span>
+                </div>
+
+                <button type="button" class="btn-create-listing" onclick="alert('Redirecting to listing creation page...')">
+                    <i class="ri-add-box-line"></i> Make a New Listing
+                </button>
+
+                <div class="profile-nav">
+                    <a href="#section-personal" class="profile-nav-link active"><i class="ri-user-settings-line"></i> Account Settings</a>
+                    <a href="#section-security" class="profile-nav-link"><i class="ri-lock-password-line"></i> Password & Security</a>
+                    <a href="#section-listings" class="profile-nav-link"><i class="ri-building-4-line"></i> My Current Listings</a>
+                </div>
+            </div>
+
+            <div class="profile-right">
+                <div class="profile-card">
+                    <div id="saveBanner" class="save-banner" style="display: none;"></div>
+                    
+                    <form id="agentUpdateForm">
+                        
+                        <section id="section-personal">
+                            <h2 class="section-title">Update Profile Details</h2>
+                            
+                            <div class="pic-upload-box">
+                                <div class="upload-info">
+                                    <label class="field-label" style="font-weight: 600; color: var(--text-primary);">Profile Image</label>
+                                    <p class="sub-text">Saves directly to your system workspace root folder.</p>
+                                    <span id="uploadStatusText" class="status-msg">No adjustment selected</span>
+                                </div>
+                                <label for="imgInput" class="btn-img-trigger">
+                                    <i class="ri-image-edit-line"></i> Select Photo
+                                </label>
+                                <input type="file" id="imgInput" accept="image/*" style="display: none;">
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="agentName">Full Name</label>
+                                    <input type="text" id="agentName" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="agentMobile">Mobile Number</label>
+                                    <input type="text" id="agentMobile" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="agentEmail">Email Address</label>
+                                    <input type="email" id="agentEmail" class="form-control disabled-field" readonly>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="agentArea">Service Area</label>
+                                    <select id="agentArea" class="form-control" required>
+                                        <option value="" disabled selected>Select your area</option>
+                                        <option value="Jaffna">Jaffna</option>
+                                        <option value="Kilinochchi">Kilinochchi</option>
+                                        <option value="Mannar">Mannar</option>
+                                        <option value="Vavuniya">Vavuniya</option>
+                                        <option value="Mullaitivu">Mullaitivu</option>
+                                        <option value="Kurunegala">Kurunegala</option>
+                                        <option value="Puttalam">Puttalam</option>
+                                        <option value="Anuradhapura">Anuradhapura</option>
+                                        <option value="Polonnaruwa">Polonnaruwa</option>
+                                        <option value="Kandy">Kandy</option>
+                                        <option value="Matale">Matale</option>
+                                        <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                        <option value="Batticaloa">Batticaloa</option>
+                                        <option value="Ampara">Ampara</option>
+                                        <option value="Trincomalee">Trincomalee</option>
+                                        <option value="Colombo">Colombo</option>
+                                        <option value="Gampaha">Gampaha</option>
+                                        <option value="Kalutara">Kalutara</option>
+                                        <option value="Ratnapura">Ratnapura</option>
+                                        <option value="Kegalle">Kegalle</option>
+                                        <option value="Galle">Galle</option>
+                                        <option value="Matara">Matara</option>
+                                        <option value="Hambantota">Hambantota</option>
+                                        <option value="Badulla">Badulla</option>
+                                        <option value="Moneragala">Moneragala</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="grid-column: span 2;">
+                                    <label for="agentSpec">Specialization</label>
+                                    <select id="agentSpec" class="form-control" required>
+                                        <option value="" disabled selected>Select Specialization Core</option>
+                                        <option value="Residential Sales">Residential Sales</option>
+                                        <option value="Commercial Properties">Commercial Properties</option>
+                                        <option value="Land & Development">Land & Development</option>
+                                        <option value="Luxury Villas">Luxury Villas</option>
+                                        <option value="Property Management">Property Management</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="section-security" style="margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--border-color);">
+                            <h2 class="section-title"><i class="ri-lock-line"></i> Update Security Credentials</h2>
+                            <div class="form-grid">
+                                <div class="form-group" style="grid-column: span 2;">
+                                    <label for="agentPassword">Account Access Password</label>
+                                    <div style="position: relative;">
+                                        <input type="password" id="agentPassword" class="form-control" placeholder="Enter new password" required>
+                                        <i class="ri-eye-line password-toggle-icon" id="togglePasswordIcon" onclick="togglePasswordVisibility()" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary); font-size: 1.2rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <input type="hidden" id="profilePicUrl">
+
+                        <div class="form-actions" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                            <button type="submit" class="btn btn-primary save-btn" id="saveBtn" style="padding: 12px 30px; font-weight: 600; border-radius: 8px; cursor: pointer;">
+                                <i class="ri-save-3-line"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+
+                    <section id="section-listings" style="margin-top: 45px; padding-top: 35px; border-top: 2px dashed var(--border-color);">
+                        <h2 class="section-title">Listings of Agent</h2>
+                        <p class="sub-text" style="margin-top:-15px; margin-bottom: 25px;">Your active properties currently published on the platform.</p>
+                        
+                        <div class="listings-list-container">
+                            <div class="listing-row-item">
+                                <div class="item-visual"><i class="ri-landscape-line"></i></div>
+                                <div class="item-body">
+                                    <h4>Prime Land in Piliyandala</h4>
+                                    <p><i class="ri-map-pin-2-line"></i> Colombo District | 15 Perches</p>
+                                    <span class="price-tag">LKR 1,800,000 <small>/per perch</small></span>
+                                </div>
+                                <div class="item-status"><span class="status-pill active-status">Active</span></div>
+                            </div>
+
+                            <div class="listing-row-item">
+                                <div class="item-visual"><i class="ri-home-8-line"></i></div>
+                                <div class="item-body">
+                                    <h4>Modern Two-Story Luxury House</h4>
+                                    <p><i class="ri-map-pin-2-line"></i> Malabe | 4 Bedrooms | 3 Bathrooms</p>
+                                    <span class="price-tag">LKR 38,500,000</span>
+                                </div>
+                                <div class="item-status"><span class="status-pill active-status">Active</span></div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="AgentUpdate-script.js"></script>
+</body>
+</html>
