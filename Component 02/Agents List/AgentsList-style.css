@@ -1,0 +1,368 @@
+/* =============== BASE STYLES & VARIABLES =============== */
+:root {
+    --bg-color: #FAF5F0;
+    --text-primary: #1C110A;
+    --text-secondary: #4A3F35;
+    --primary-color: #2D1D13;
+    --primary-color-hover: #4A3020;
+    --card-bg: #E8D6CA;
+    --card-bg-light: #F4EBE6;
+    --input-bg: #FFF7F2;
+    --border-color: #D1BFA5;
+    --white: #FFFFFF;
+    --transition-speed: 0.3s;
+    --shadow: 0 8px 24px rgba(45, 29, 19, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    padding-top: 80px; /* Prevents hero content from slipping behind fixed navbar */
+}
+
+/* ── FIXED NAVBAR ── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--card-bg-light); /* Changed from var(--white) to match the theme */
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(45, 29, 19, 0.04); /* Adjusted shadow to match the warmer background */
+}
+
+.navbar .logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+}
+
+/* Link hover effects matching realstate.lk workspace themes */
+/* Also update the link hover state slightly so it contrasts nicely with the new navbar color */
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: var(--card-bg); /* Darker cream on hover for distinct visual feedback */
+}
+
+.nav-links a.active {
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+/* ─── HERO & SEARCH AREA ─── */
+.hero-section {
+    background-color: var(--card-bg-light);
+    text-align: center;
+    padding: 50px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-section h1 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+.search-container {
+    max-width: 550px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px 20px 15px 55px;
+    border: 2px solid var(--border-color);
+    border-radius: 14px;
+    background-color: var(--input-bg);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    transition: all var(--transition-speed);
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(45, 29, 19, 0.1);
+}
+
+/* ─── AGENT CARDS GRID ─── */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.agent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.agent-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.agent-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(45, 29, 19, 0.1);
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 220px;
+    background-color: var(--card-bg-light);
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.agent-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.agent-content h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background-color: var(--card-bg-light);
+    padding: 6px 12px;
+    border-radius: 8px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+}
+
+.badge i {
+    color: var(--primary-color);
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.location i {
+    color: var(--primary-color);
+}
+
+/* ─── VIEW PROFILE BUTTON ─── */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    transition: background-color var(--transition-speed);
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.loading-text, .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* =============== FOOTER =============== */
+
+:root {
+    --footer-bg: #D9C8BB;
+    --text-primary: #1C110A;
+    --text-secondary: #4A3F35;
+    --primary-color: #2D1D13;
+}
+
+.pt-100 {
+    padding-top: 6rem;
+}
+
+.pb-100 {
+    padding-bottom: 6rem;
+}
+
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--text-primary);
+    margin-top: 6rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.footer-logo i {
+    font-size: 1.75rem;
+}
+
+.brand-col p {
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    max-width: 250px;
+    line-height: 1.7;
+}
+
+.footer-col h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-col a {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Footer */
+
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .brand-col {
+        grid-column: 1 / -1;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
