@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Agent - RealState.lk</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="Agentlogin-style.css">
+    <link rel="stylesheet" href="AgentLogin-style-2.css">
+</head>
+<body class="bg-light">
+
+     <header class="navbar scrolled">
+        <div class="container nav-container" style="justify-content: center;">
+            <a href="../../Basic UI/Home Page/index.html" class="logo">
+                <i class="ri-home-wifi-fill"></i> RealState.lk
+            </a>
+        </div>
+    </header>
+
+    <main class="signup-page"> <div class="container">
+            
+            <div class="signup-wrapper">
+                <div class="signup-image">
+                    <img src="BG Image/Buildings.png" alt="Buildings">
+                    <div class="signup-image-overlay">
+                        <h2>Welcome Back</h2>
+                        <p>Please log in to your account for manage your appointments with clients and make new listnings.</p>
+                    </div>
+                </div>
+
+                <div class="signup-content">
+                    <a href="../../Basic UI/Home Page/index.html" class="back-home"><i class="ri-arrow-left-line"></i> Back to Home</a>
+                    <div class="signup-header">
+                        
+                        <h2>Welcome Back!</h2>
+                        <p>Please enter your details to sign in to your agent profile.</p>
+                    </div>
+
+                    <button class="btn-google">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google Logo">
+                        Sign in with Google
+                    </button>
+
+                    <div class="divider-text">
+                        <span>or sign in with email</span>
+                    </div>
+
+                    <form id="agent-login-form">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="example@mail.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="remember-me">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-link">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-4">Login</button>
+                    </form>
+
+                    <div class="signup-footer">
+                        <p>Don't have an account? <a href="../Signup Agent/Signup - Agent.html">Create Account</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="AgentLogin-script.js"></script>
+</body>
+</html>
