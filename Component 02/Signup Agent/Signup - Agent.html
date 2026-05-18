@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - RealState.lk</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- RemixIcon for Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="SignupAgent-tyle.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation simplified for signup -->
+    <header class="navbar scrolled">
+        <div class="container nav-container" style="justify-content: center;">
+            <a href="../../Basic UI/Home Page/index.html" class="logo">
+                <i class="ri-home-wifi-fill"></i> RealState.lk
+            </a>
+        </div>
+    </header>
+
+    <div class="signup-page">
+        <div class="container">
+            <div class="signup-wrapper">
+                <div class="signup-image">
+                    <img src="BG Images/Agent 05.png" alt="Agennt 05 Image" loading="lazy">
+                    <div class="signup-image-overlay">
+                        <h2>Join Our Community</h2>
+                        <p>Join Sri Lanka’s leading real estate network and connect with motivated buyers daily</p>
+                    </div>
+                </div>
+                <div class="signup-content">
+                    <a href="../../Basic UI/Home Page/index.html" class="back-home"><i class="ri-arrow-left-line"></i> Back to Home</a>
+                    <div class="signup-header">
+                        <h2>Create an Account</h2>
+                        <p>Sign up to Join Our Trusted Agent Network.</p>
+                    </div>
+
+                    <button class="btn-google" type="button" onclick="alert('Google Sign Up integration pending.')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
+                        Sign up with Google
+                    </button>
+
+                    <div class="divider-text">
+                        <span>or sign up with email</span>
+                    </div>
+
+                    <form id="agent-signup-form" class="signup-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" id="mobile" class="form-control" placeholder="07XXXXXXXX" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service-area">Service Area</label>
+                            <select id="service-area" class="form-control" name="Area" required>
+                                <option value="" disabled selected>Select your area</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Kegalle">Kegalle</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Moneragala">Moneragala</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specializations">Specializations</label>
+                            <select id="specializations" class="form-control" required>
+                                <option value="" disabled selected>Select your specialization</option>
+                                <option value="Residential Sales">Residential Sales</option>
+                                <option value="Commercial Leasing">Commercial Leasing</option>
+                                <option value="Property Management">Property Management</option>
+                                <option value="Luxury Real Estate">Luxury Real Estate</option>
+                                <option value="Land & Development">Land & Development</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Create a strong password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+                        </div>
+                        
+                        <div class="privacy-note">
+                            <i class="ri-shield-check-fill"></i>
+                            <div><strong>Your details are safe and secure.</strong> We use industry-standard encryption and will never share your personal data with third parties.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-4">Create Account</button>
+                    </form>
+
+                    <div class="signup-footer">
+                        Already have an account? <a href="../Agent Login/Agent Login.html">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="SignupAgent-script.js"></script>
+</body>
+</html>
